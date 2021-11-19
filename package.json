@@ -92,6 +92,8 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
+    "sass": "^1.43.4",
+    "sass-loader": "10.1.1",
     "typescript": "4.4.4"
   },
   "browserslist": [
