@@ -17,6 +17,9 @@
     // demo
     {
       "path": "pages/demo/load_more"
+    },
+     {
+      "path": "pages/demo/counter"
     }
 	],
 	"globalStyle": {

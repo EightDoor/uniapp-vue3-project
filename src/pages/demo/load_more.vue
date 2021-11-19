@@ -1,5 +1,6 @@
 <template>
    <com-content title="加载更多"
+   :isLeft="true"
     :refresh="true"
     @refresh="refresh"
     :page="page"

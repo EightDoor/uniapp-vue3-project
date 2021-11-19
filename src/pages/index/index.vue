@@ -3,9 +3,11 @@
    >
     <uni-list>
         <uni-list-item
+        v-for="(item, index) in list"
+        :key="index"
           clickable rightText="点击跳转"
-          title="加载更多"
-          @click="goLoadMore"
+          :title="item.title"
+          @click="goLoadMore(item.path)"
         ></uni-list-item>
     </uni-list>
     </com-content>
@@ -21,13 +23,24 @@ export default defineComponent({
   },
   name: 'PagesIndex',
   setup() {
-    function goLoadMore() {
+    const list = [
+      {
+        title: '加载更多',
+        path: '/pages/demo/load_more',
+      },
+      {
+        title: 'vuex',
+        path: '/pages/demo/counter',
+      },
+    ];
+    function goLoadMore(url: string) {
       uni.navigateTo({
-        url: '/pages/demo/load_more',
+        url,
       });
     }
     return {
       goLoadMore,
+      list,
     };
   },
 });

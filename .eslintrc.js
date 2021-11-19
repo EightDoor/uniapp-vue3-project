@@ -25,5 +25,7 @@ module.exports = {
     'import/extensions': 'off',
     // 不允许给自定义vue v-model添加参数
     'vue/no-v-model-argument': 'off',
+    // 禁止重新分配函数参数
+    'no-param-reassign': 'off',
   },
 };
