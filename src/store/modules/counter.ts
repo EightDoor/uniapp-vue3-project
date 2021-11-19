@@ -4,7 +4,7 @@ interface CounterState {
   count: number
 }
 
-const Counter: Module<CounterState, any> = {
+const Counter: Module<CounterState, CounterState> = {
   namespaced: true,
   state: {
     count: 0,
