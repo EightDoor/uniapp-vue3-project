@@ -1,37 +1,38 @@
 <template>
-  <view class="content">
-    <image class="logo" src="../../static/logo.png"></image>
-    <view>
-      <text class="title">{{ title }}</text>
-    </view>
-  </view>
+   <com-content title="首页"
+   >
+    <uni-list>
+        <uni-list-item
+          clickable rightText="点击跳转"
+          title="加载更多"
+          @click="goLoadMore"
+        ></uni-list-item>
+    </uni-list>
+    </com-content>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
+import ComContent from '@/components/Content/index.vue';
+
 export default defineComponent({
+  components: {
+    ComContent,
+  },
+  name: 'PagesIndex',
   setup() {
+    function goLoadMore() {
+      uni.navigateTo({
+        url: '/pages/demo/load_more',
+      });
+    }
     return {
-      title: "hello",
+      goLoadMore,
     };
   },
 });
 </script>
 
 <style>
-.content {
-  text-align: center;
-  height: 400upx;
-}
 
-.logo {
-  height: 200upx;
-  width: 200upx;
-  margin-top: 200upx;
-}
-
-.title {
-  font-size: 36upx;
-  color: #8f8f94;
-}
 </style>
