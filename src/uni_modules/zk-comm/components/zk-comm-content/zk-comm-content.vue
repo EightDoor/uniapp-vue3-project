@@ -36,8 +36,8 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, nextTick } from 'vue';
-import Toast from '@/utils/toast';
-import log from '@/utils/log';
+import Toast from '../../utils/toast';
+import log from '../../utils/log';
 
 type LoadMore = 'more' | 'loading' | 'noMore';
 export default defineComponent({

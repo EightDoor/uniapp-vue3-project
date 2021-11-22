@@ -1,0 +1,82 @@
+{
+   
+    "id": "zk-comm",
+    "displayName": "vue3 上拉加载 下拉刷新",
+    "version": "1.0.0", 
+    "description": "vue3公用组件,上拉加载，下拉刷新",
+    "keywords": [
+        "前端",
+        "vue3",
+        "typescript"
+    ],
+    "repository": "https://github.com/EightDoor/zk_comm/tree/master/packages/uniapp",
+    "engines": {
+        "HBuilderX": "^3.1.0"
+    },
+    "dcloudext": {
+      "category": ["前端组件", "通用组件"], 
+      "sale": {   
+          "regular": { 
+              "price": "0.00"
+          },
+          "sourcecode": { 
+              "price": "0.00"
+          }
+      },
+      "contact": { 
+          "qq": "851708184"
+      },
+      "declaration": { 
+          "ads": "无", 
+          "data": "插件不采集任何数据", 
+          "permissions": "无" 
+      },
+      "npmurl":"" 
+    },
+    "uni_modules": {
+        "dependencies": [],
+        "encrypt": [ 
+          
+        ],
+        "platforms": {
+            "cloud": { 
+                "tcb": "y",
+                "aliyun": "y"
+            },
+            "client": {
+                "App": {
+                    "app-vue": "u",
+                    "app-nvue": "u"
+                },
+                "H5-mobile": {
+                    "Safari": "u",
+                    "Android Browser": "u",
+                    "微信浏览器(Android)": "u",
+                    "QQ浏览器(Android)": "u"
+                },
+                "H5-pc": {
+                    "Chrome": "u",
+                    "IE": "u",
+                    "Edge": "u",
+                    "Firefox": "u",
+                    "Safari": "u"
+                },
+                "小程序": {
+                    "微信": "y",
+                    "阿里": "y",
+                    "百度": "y",
+                    "字节跳动": "y",
+                    "QQ": "y"
+                },
+                "快应用": {
+                    "华为": "u",
+                    "联盟": "u"
+                },
+                "Vue": {
+                    "vue2": "n",
+                    "vue3": "y"
+                }
+            }
+        }
+    }
+}

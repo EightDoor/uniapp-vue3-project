@@ -1,5 +1,5 @@
 <template>
-   <com-content title="加载更多"
+   <zk-comm-scroll title="加载更多"
    :isLeft="true"
     :refresh="true"
     @refresh="refresh"
@@ -12,7 +12,7 @@
       <view v-for="(item, index) in list" :key="index" style="border: 1px solid red;height: 100px">
         <text>{{item.id}} {{item.title}}</text>
       </view>
-    </com-content>
+    </zk-comm-scroll>
 </template>
 
 <script lang="ts">
@@ -20,17 +20,13 @@ import {
   defineComponent, ref, onMounted,
 } from 'vue';
 import { cloneDeep } from 'lodash';
-import ComContent from '@/components/Content/index.vue';
-import log from '@/utils/log';
+import log from '@/uni_modules/zk-comm/utils/log';
 
 interface List {
   title: string;
   id: number
 }
 export default defineComponent({
-  components: {
-    ComContent,
-  },
   name: 'PagesLoadMore',
   setup() {
     const page = ref(1);

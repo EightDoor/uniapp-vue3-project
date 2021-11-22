@@ -1,23 +1,19 @@
 <template>
-  <com-content title="vuex" :isLeft="true">
+  <zk-comm-scroll title="vuex" :isLeft="true">
       <view>
         <button type="button" @click="add(count)">添加</button>
         <text>
           {{count}}
         </text>
       </view>
-  </com-content>
+  </zk-comm-scroll>
 </template>
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
-import ComContent from '@/components/Content/index.vue';
 
 export default defineComponent({
   name: 'DemoCounter',
-  components: {
-    ComContent,
-  },
   setup() {
     const store = useStore();
 

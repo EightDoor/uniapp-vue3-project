@@ -18,9 +18,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import NavBar from './navbar.vue';
-import CustomContent from './content.vue';
-import log from '@/utils/log';
+import NavBar from '../zk-comm-navbar/zk-comm-navbar.vue';
+import CustomContent from '../zk-comm-content/zk-comm-content.vue';
+import log from '../../utils/log';
 
 export default defineComponent({
   name: 'ComIndex',

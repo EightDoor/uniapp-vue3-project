@@ -1,5 +1,5 @@
 <template>
-   <com-content title="首页"
+   <zk-comm-scroll title="首页"
    >
     <uni-list>
         <uni-list-item
@@ -10,17 +10,13 @@
           @click="goLoadMore(item.path)"
         ></uni-list-item>
     </uni-list>
-    </com-content>
+    </zk-comm-scroll>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ComContent from '@/components/Content/index.vue';
 
 export default defineComponent({
-  components: {
-    ComContent,
-  },
   name: 'PagesIndex',
   setup() {
     const list = [
