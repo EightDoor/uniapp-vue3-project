@@ -33,14 +33,14 @@
   </view>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import NavBar from "../zk-comm-navbar/zk-comm-navbar.vue";
-import CustomContent from "../zk-comm-content/zk-comm-content.vue";
-import log from "../../utils/log";
-import { CallLoadMoreType } from "../../types";
+import { defineComponent, ref } from 'vue';
+import NavBar from '../zk-comm-navbar/zk-comm-navbar.vue';
+import CustomContent from '../zk-comm-content/zk-comm-content.vue';
+import log from '../../utils/log';
+import { CallLoadMoreType } from '../../types';
 
 export default defineComponent({
-  name: "ComIndex",
+  name: 'ComIndex',
   components: {
     NavBar,
     CustomContent,
@@ -48,7 +48,7 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      default: "",
+      default: '',
     },
     isLeft: {
       type: Boolean,
@@ -64,12 +64,12 @@ export default defineComponent({
     },
     activeColor: {
       type: String,
-      default: "#4cd964",
+      default: '#4cd964',
     },
     // button text
     width: {
       type: String,
-      default: "50px",
+      default: '50px',
     },
     ceilingHeight: {
       type: Number,
@@ -77,49 +77,47 @@ export default defineComponent({
     },
     list: {
       type: Array,
-      default: () => {
-        return [];
-      },
+      default: () => [],
     },
   },
   emits: [
-    "refresh",
-    "loadMore",
-    "update:page",
-    "update:size",
-    "onScroll",
-    "goTop",
-    "changeIndex",
+    'refresh',
+    'loadMore',
+    'update:page',
+    'update:size',
+    'onScroll',
+    'goTop',
+    'changeIndex',
   ],
   setup(props, { emit }) {
     const pageNum = ref(1);
     const pageSize = ref(10);
 
     function loadMore(data: CallLoadMoreType) {
-      emit("loadMore", data);
+      emit('loadMore', data);
     }
 
     function updatePage(val: number) {
-      emit("update:page", val);
+      emit('update:page', val);
     }
 
     function updateSize(val: number) {
-      emit("update:size", val);
+      emit('update:size', val);
     }
 
     function onScroll(e: any) {
-      emit("onScroll", e);
+      emit('onScroll', e);
     }
 
     function goTop() {
-      emit("goTop");
+      emit('goTop');
     }
 
-    const defaultTextColor = "black";
+    const defaultTextColor = 'black';
     const current = ref(0);
     function change(val: number) {
       current.value = val;
-      emit("changeIndex", val);
+      emit('changeIndex', val);
     }
 
     return {

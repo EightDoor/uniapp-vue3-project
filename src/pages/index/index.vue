@@ -36,6 +36,10 @@ export default defineComponent({
         title: 'vuex',
         path: '/pages/demo/counter',
       },
+      {
+        title: '网络请求',
+        path: '/pages/demo/network',
+      },
     ];
     function goLoadMore(url: string) {
       uni.navigateTo({
