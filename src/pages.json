@@ -20,6 +20,12 @@
     },
      {
       "path": "pages/demo/counter"
+    },
+    {
+      "path": "pages/demo/tabs"
+    },
+    {
+      "path": "pages/demo/tabs_complex"
     }
 	],
 	"globalStyle": {

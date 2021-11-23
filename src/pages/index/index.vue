@@ -25,6 +25,14 @@ export default defineComponent({
         path: '/pages/demo/load_more',
       },
       {
+        title: 'tabs简单使用',
+        path: '/pages/demo/tabs',
+      },
+      {
+        title: 'tabs复杂使用(上拉加载，下拉刷新)',
+        path: '/pages/demo/tabs_complex',
+      },
+      {
         title: 'vuex',
         path: '/pages/demo/counter',
       },

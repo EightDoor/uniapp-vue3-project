@@ -1,8 +1,9 @@
 {
    
-    "id": "zk-comm",
+    "id": "zk-comm-scroll",
     "displayName": "vue3 上拉加载 下拉刷新",
-    "version": "1.0.0", 
+    "version": "1.1.2", 
+    "private": true,
     "description": "vue3公用组件,上拉加载，下拉刷新",
     "keywords": [
         "前端",
@@ -63,10 +64,10 @@
                 },
                 "小程序": {
                     "微信": "y",
-                    "阿里": "y",
+                    "阿里": "n",
                     "百度": "y",
-                    "字节跳动": "y",
-                    "QQ": "y"
+                    "字节跳动": "n",
+                    "QQ": "n"
                 },
                 "快应用": {
                     "华为": "u",
