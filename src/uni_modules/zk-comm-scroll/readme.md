@@ -7,6 +7,14 @@
 - 上拉加载,下拉刷新
   - 分页加载数据
 - 自定义导航栏
+- tabs 
+- tabs组合上拉加载、下拉刷新
+
+# 注意事项
+
+- 自定义导航栏仅支持
+  - <font color="red">微信小程序 7.0+、百度小程序、H5、App（2.0.3+）</font>
+  - 其他平台的需要在pages.json声明 style ->  navigationBarTitleText 标题
 
 # 存在问题
 
@@ -15,13 +23,15 @@
 # 目录结构
 
 - components
-  - zk-comm-content
+  - zk-comm-content-scroll
     - zk-comm-content.vue 内容区域
     - zk-comm-navbar.vue 自定义导航栏
     - zk-comm-scroll.vue 上拉加载,下拉刷新
 - utils目录
   - log.ts log日志输出
   - toast.ts 提示
+  - request.ts 网络请求
+  - update.ts 小程序应用更新
 # 其他
 
 - <font color="red">uniapp、vue3、typescript 基础项目</font>

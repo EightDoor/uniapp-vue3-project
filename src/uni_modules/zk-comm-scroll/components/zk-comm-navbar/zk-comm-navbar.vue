@@ -14,20 +14,20 @@
   </view>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
     title: {
       type: String,
-      default: "",
+      default: '',
     },
     isLeft: {
       type: Boolean,
       default: false,
     },
   },
-  name: "NavBar",
+  name: 'NavBar',
   setup() {
     function back() {
       uni.navigateBack({

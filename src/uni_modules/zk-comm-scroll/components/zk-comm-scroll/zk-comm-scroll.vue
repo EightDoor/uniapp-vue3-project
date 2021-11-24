@@ -1,8 +1,11 @@
 <template>
   <view>
+    <!-- #ifdef APP-PLUS || H5 || MP-WEIXIN|| MP-BAIDU -->
     <nav-bar :title="title" :isLeft="isLeft">
       <slot name="navBarRight" />
     </nav-bar>
+    <!-- #endif -->
+
     <scroll-view v-if="isTab" class="tabs_title_container" scroll-x="true">
       <view :class="{ tabs_title_for: list.length <= 4 }">
         <view

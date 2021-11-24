@@ -27,5 +27,9 @@ module.exports = {
     'vue/no-v-model-argument': 'off',
     // 禁止重新分配函数参数
     'no-param-reassign': 'off',
+    // 禁止出现未使用的变量
+    'no-unused-vars': 'off',
+    // 在未定义变量之前定义
+    'no-use-before-define': 'off',
   },
 };

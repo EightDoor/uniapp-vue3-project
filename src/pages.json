@@ -8,28 +8,49 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 
 		{
-			"path": "pages/index/index"
+			"path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "首页"
+      }
 		},
     {
-			"path": "pages/my/index"
+			"path": "pages/my/index",
+      "style": {
+         "navigationBarTitleText": "我的"
+      }
 		},
 
 
     // demo
     {
-      "path": "pages/demo/load_more"
+      "path": "pages/demo/load_more",
+      "style": {
+         "navigationBarTitleText": "加载更多"
+      }
     },
      {
-      "path": "pages/demo/counter"
+      "path": "pages/demo/counter",
+       "style": {
+         "navigationBarTitleText": "计数器"
+      }
     },
     {
-      "path": "pages/demo/tabs"
+      "path": "pages/demo/tabs",
+       "style": {
+         "navigationBarTitleText": "tabs"
+      }
     },
     {
-      "path": "pages/demo/tabs_complex"
+      "path": "pages/demo/tabs_complex",
+       "style": {
+         "navigationBarTitleText": "tabs上拉加载、下拉刷新"
+      }
     },
             {
-      "path": "pages/demo/network"
+      "path": "pages/demo/network",
+       "style": {
+         "navigationBarTitleText": "网络请求"
+      }
     }
 
 	],
@@ -37,6 +58,9 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
+    // #ifdef MP-ALIPAY	
+    "navigationBarBackgroundColor": "#FFF",
+    // #endif
 		"backgroundColor": "#F8F8F8",
     "navigationStyle": "custom"
 	},
