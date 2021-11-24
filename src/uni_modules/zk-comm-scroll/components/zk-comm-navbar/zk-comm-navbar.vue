@@ -4,7 +4,7 @@
       <view class="navbar_title">
         <text>{{ title }}</text>
       </view>
-      <view class="navbar_left" @click="back" v-if="isLeft" slot="left">
+      <view  slot="left" class="navbar_left" @click="back" v-if="isLeft">
         <uni-icons type="back" size="20"></uni-icons> 返回
       </view>
       <view slot="right">

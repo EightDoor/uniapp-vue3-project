@@ -1,6 +1,6 @@
 <template>
   <view>
-    <!-- #ifdef APP-PLUS || H5 || MP-WEIXIN|| MP-BAIDU -->
+    <!-- #ifdef APP-PLUS || H5 || MP-WEIXIN|| MP-BAIDU ||MP-TOUTIAO || MP-QQ -->
     <nav-bar :title="title" :isLeft="isLeft">
       <slot name="navBarRight" />
     </nav-bar>
