@@ -143,7 +143,7 @@ export default defineComponent({
     }
 
     function onTouchStart(event: any) {
-      if (scrollOldTop.value === 0 && props.refresh) {
+      if (scrollOldTop.value <= Config.triggerCriticalValue && props.refresh) {
         touchSourceData.x = formatTouchXy(event).x;
         touchSourceData.y = formatTouchXy(event).y;
         refreshStatus.value = ReeshStatusType.NONE;
@@ -151,7 +151,7 @@ export default defineComponent({
     }
 
     function onTouchMove(event: any) {
-      if (scrollOldTop.value === 0 && props.refresh) {
+      if (scrollOldTop.value <= Config.triggerCriticalValue && props.refresh) {
         const { y } = formatTouchXy(event);
         const movingPosition = touchSourceData.y - y;
         log.d(movingPosition, '结果值');
@@ -159,7 +159,6 @@ export default defineComponent({
       }
     }
     function onTouchEnd() {
-      log.d(scrollOldTop.value);
       if (props.refresh) {
         log.d('结束');
         const posi = Math.abs(moveYPosition.value);
@@ -168,6 +167,14 @@ export default defineComponent({
           refreshFun();
         }
       }
+    }
+
+    function scrollTopFun() {
+      scrollTop.value = scrollOldTop.value;
+      nextTick(() => {
+        scrollTop.value = 0;
+      });
+      refreshFun();
     }
 
     watch(refreshStatus, (newVal) => {
@@ -185,6 +192,7 @@ export default defineComponent({
       isShowTop,
       triggered,
       more,
+      scrollTopFun,
 
       // 自定义下拉刷新
       onTouchStart,

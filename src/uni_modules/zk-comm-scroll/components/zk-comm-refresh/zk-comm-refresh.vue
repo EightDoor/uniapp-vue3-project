@@ -71,7 +71,6 @@ export default defineComponent({
 
     watch(() => props.moveYPosition, (newVal) => {
       position.value = newVal;
-      log.d(newVal, 'a');
     });
     return {
       formatDisplay,
