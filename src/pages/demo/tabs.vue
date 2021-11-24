@@ -7,23 +7,21 @@
       title="tabs"
       @changeIndex="changeIndex"
     >
-      <uni-list class="test" v-show="current === 0">
-        <uni-list-item>
-          <text style="height: 200px; width: 100%; border: 1px solid red">12</text>
+      <uni-list class="test" v-if="current === 0">
+        <uni-list-item title="123">
         </uni-list-item>
-        <uni-list-item>
-          <text style="height: 200px; width: 100%; border: 1px solid red">12</text>
+        <uni-list-item  title="123">
         </uni-list-item>
-        <uni-list-item>
-          <text style="height: 200px; width: 100%; border: 1px solid red">12</text>
+        <uni-list-item  title="123">
         </uni-list-item>
       </uni-list>
-      <text v-show="current === 1">123</text>
+      <text v-if="current === 1">123</text>
     </zk-comm-scroll>
   </view>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import log from '@/uni_modules/zk-comm-scroll/utils/log';
 
 export default defineComponent({
   name: 'DemoTabs',
@@ -42,6 +40,7 @@ export default defineComponent({
     const current = ref(0);
 
     function changeIndex(val: number) {
+      log.d(val, 'v');
       current.value = val;
     }
     return {

@@ -31,5 +31,8 @@ module.exports = {
     'no-unused-vars': 'off',
     // 在未定义变量之前定义
     'no-use-before-define': 'off',
+    //
+    'no-shadow': 'off',
+
   },
 };

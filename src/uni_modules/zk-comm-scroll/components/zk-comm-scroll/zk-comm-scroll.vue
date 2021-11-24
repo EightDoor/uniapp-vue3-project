@@ -15,7 +15,7 @@
           class="tabs_title"
           :style="{
             width: width,
-            borderBottom: `1px solid ${current === index ? activeColor : 'transpart'}`,
+            borderBottom: `1px solid ${current === index ? activeColor : 'white'}`,
           }"
         >
           <text :style="{ color: current === index ? activeColor : defaultTextColor }">
@@ -86,9 +86,6 @@ export default defineComponent({
   emits: [
     'refresh',
     'loadMore',
-    'update:page',
-    'update:size',
-    'onScroll',
     'goTop',
     'changeIndex',
   ],
@@ -100,16 +97,8 @@ export default defineComponent({
       emit('loadMore', data);
     }
 
-    function updatePage(val: number) {
-      emit('update:page', val);
-    }
-
-    function updateSize(val: number) {
-      emit('update:size', val);
-    }
-
     function onScroll(e: any) {
-      emit('onScroll', e);
+      //
     }
 
     function goTop() {
@@ -127,8 +116,6 @@ export default defineComponent({
       pageNum,
       pageSize,
       loadMore,
-      updatePage,
-      updateSize,
       onScroll,
       goTop,
 

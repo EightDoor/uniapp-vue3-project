@@ -8,16 +8,16 @@
       :list="data"
       @changeIndex="changeIndex"
     >
-      <uni-list class="test" v-show="current === 0">
+      <uni-list class="test" v-if="current === 0">
         <uni-list-item
           v-for="(item, index) in list"
           :key="index"
           style="border: 1px solid red; height: 100px"
+          :title="item.title"
         >
-          <text>{{ item.id }} {{ item.title }}</text>
         </uni-list-item>
       </uni-list>
-      <text v-show="current === 1">123</text>
+      <text v-if="current === 1">123</text>
     </zk-comm-scroll>
   </view>
 </template>

@@ -4,16 +4,10 @@
       :class="{ scroll_view: !isTab, scroll_view_tab: isTab }"
       :enable-back-to-top="true"
       :show-scrollbar="true"
-      :refresher-enabled="refresh"
-      :refresher-threshold="45"
       :scroll-anchoring="true"
-      :refresher-triggered="triggered"
-      @refresherrestore="onRestore"
-      @refresherrefresh="refresherrefresh"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
       @touchend="onTouchEnd"
-      @refresherabort="onAbort"
       :scroll-top="scrollTop"
       scroll-y="true"
       @scrolltoupper="upper"
@@ -40,17 +34,16 @@
 
 <script lang="ts">
 import {
-  defineComponent, ref, nextTick, reactive,
+  defineComponent, ref, nextTick, reactive, watch,
 } from 'vue';
 import Toast from '../../utils/toast';
 import log from '../../utils/log';
 import { CallLoadMoreType, ReeshStatusType } from '../../types';
-import zkCommNavbar from '../zk-comm-navbar/zk-comm-navbar.vue';
+import Config from '../../config/index';
 
 type LoadMore = 'more' | 'loading' | 'noMore';
 
 export default defineComponent({
-  components: { zkCommNavbar },
   name: 'ComContent',
   props: {
     refresh: {
@@ -133,28 +126,6 @@ export default defineComponent({
         size: pageSize.value,
       } as CallLoadMoreType);
     }
-    // 自定义下拉刷新被触发
-    // 只支持 app-vue 2.5.12+,微信小程序基础库2.10.1+
-    function refresherrefresh() {
-      triggered.value = true;
-      refreshFun();
-    }
-    // 自定义下拉刷新被复位
-    function onRestore() {
-      // 需要重置
-      triggered.value = 'restore';
-    }
-    // 自定义下拉刷新被中止
-    function onAbort() {}
-    function scrollTopFun() {
-      scrollTop.value = scrollOldTop.value;
-      nextTick(() => {
-        scrollTop.value = 0;
-        // 刷新页面
-        refreshFun();
-        emit('goTop');
-      });
-    }
 
     const touchSourceData = reactive({
       x: 0,
@@ -172,39 +143,47 @@ export default defineComponent({
     }
 
     function onTouchStart(event: any) {
-      if (scrollOldTop.value === 0) {
+      if (scrollOldTop.value === 0 && props.refresh) {
         touchSourceData.x = formatTouchXy(event).x;
         touchSourceData.y = formatTouchXy(event).y;
+        refreshStatus.value = ReeshStatusType.NONE;
       }
     }
 
     function onTouchMove(event: any) {
-      if (scrollOldTop.value === 0) {
+      if (scrollOldTop.value === 0 && props.refresh) {
         const { y } = formatTouchXy(event);
         const movingPosition = touchSourceData.y - y;
-        if (!moveYPosition.value) {
-          moveYPosition.value = movingPosition;
-        }
+        log.d(movingPosition, '结果值');
+        moveYPosition.value = movingPosition;
       }
     }
     function onTouchEnd() {
-      if (scrollOldTop.value === 0) {
+      log.d(scrollOldTop.value);
+      if (props.refresh) {
         log.d('结束');
-        refreshStatus.value = ReeshStatusType.FRESH_LOADING;
+        const posi = Math.abs(moveYPosition.value);
+        if (posi > Config.triggerCriticalValue) {
+          refreshStatus.value = ReeshStatusType.FRESH_LOADING;
+          refreshFun();
+        }
       }
     }
+
+    watch(refreshStatus, (newVal) => {
+      if (newVal === ReeshStatusType.DONE) {
+        setTimeout(() => {
+          moveYPosition.value = 0;
+        }, 1000);
+      }
+    });
     return {
       scrollTop,
       upper,
       lower,
       scroll,
       isShowTop,
-      scrollTopFun,
-      // 自定义下拉刷新
-      refresherrefresh,
       triggered,
-      onRestore,
-      onAbort,
       more,
 
       // 自定义下拉刷新
