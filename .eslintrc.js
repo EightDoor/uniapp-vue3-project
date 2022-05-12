@@ -3,19 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
-  ],
+  extends: ['plugin:vue/essential', 'airbnb-base'],
   parserOptions: {
     ecmaVersion: 13,
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
-  plugins: [
-    'vue',
-    '@typescript-eslint',
-  ],
+  plugins: ['vue', '@typescript-eslint'],
   rules: {
     // 禁止使用未经声明的变量
     'no-undef': 'off',
@@ -31,8 +25,7 @@ module.exports = {
     'no-unused-vars': 'off',
     // 在未定义变量之前定义
     'no-use-before-define': 'off',
-    //
     'no-shadow': 'off',
-
+    'import/prefer-default-export': 'off',
   },
 };

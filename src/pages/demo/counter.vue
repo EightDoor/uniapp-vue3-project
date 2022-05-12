@@ -10,18 +10,17 @@
 </template>
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import { useStore } from 'vuex';
+import { useCounterStore } from '@/store/counter';
 
 export default defineComponent({
   name: 'DemoCounter',
   setup() {
-    const store = useStore();
-
+    const counter = useCounterStore();
     function add(val: number) {
-      store.commit('counter/setCount', val += 1);
+      counter.setCount(val);
     }
     return {
-      count: computed(() => store.state.counter.count),
+      count: computed(() => counter.count),
       add,
     };
   },

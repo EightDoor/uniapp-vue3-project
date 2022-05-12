@@ -63,9 +63,9 @@
     "dayjs": "^1.10.7",
     "flyio": "^0.6.2",
     "lodash": "^4.17.21",
+    "pinia": "^2.0.14",
     "regenerator-runtime": "^0.12.1",
-    "vue": "3.2.22",
-    "vuex": "4.0.2"
+    "vue": "3.2.22"
   },
   "devDependencies": {
     "@babel/plugin-syntax-typescript": "^7.2.0",

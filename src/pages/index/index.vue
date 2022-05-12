@@ -33,7 +33,7 @@ export default defineComponent({
         path: '/pages/demo/tabs_complex',
       },
       {
-        title: 'vuex',
+        title: 'pinia',
         path: '/pages/demo/counter',
       },
       {
