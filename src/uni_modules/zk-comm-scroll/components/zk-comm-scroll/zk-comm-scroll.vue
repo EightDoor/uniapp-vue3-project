@@ -15,10 +15,16 @@
           class="tabs_title"
           :style="{
             width: width,
-            borderBottom: `1px solid ${current === index ? activeColor : 'white'}`,
+            borderBottom: `1px solid ${
+              current === index ? activeColor : 'white'
+            }`,
           }"
         >
-          <text :style="{ color: current === index ? activeColor : defaultTextColor }">
+          <text
+            :style="{
+              color: current === index ? activeColor : defaultTextColor,
+            }"
+          >
             {{ item }}
           </text>
         </view>
@@ -83,12 +89,7 @@ export default defineComponent({
       default: () => [],
     },
   },
-  emits: [
-    'refresh',
-    'loadMore',
-    'goTop',
-    'changeIndex',
-  ],
+  emits: ['refresh', 'loadMore', 'goTop', 'changeIndex'],
   setup(props, { emit }) {
     const pageNum = ref(1);
     const pageSize = ref(10);

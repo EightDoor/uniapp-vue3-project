@@ -1,5 +1,10 @@
 <template>
-  <zk-comm-scroll title="加载更多" :isLeft="true" :refresh="true" @load-more="loadMore">
+  <zk-comm-scroll
+    title="加载更多"
+    :isLeft="true"
+    :refresh="true"
+    @load-more="loadMore"
+  >
     <view
       v-for="(item, index) in list"
       :key="index"

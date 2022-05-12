@@ -4,12 +4,15 @@
       <view class="navbar_title">
         <text>{{ title }}</text>
       </view>
-      <view  slot="left" class="navbar_left" @click="back" v-if="isLeft">
-        <uni-icons type="back" size="20"></uni-icons> 返回
-      </view>
-      <view slot="right">
+      <template v-slot:left>
+        <view v-if="isLeft" @click="back" class="navbar_left">
+          <uni-icons type="back" size="20"></uni-icons>
+          返回
+        </view>
+      </template>
+      <template v-slot:left>
         <slot name="right" />
-      </view>
+      </template>
     </uni-nav-bar>
   </view>
 </template>
@@ -42,6 +45,10 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .navbar_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 100%;
 }
