@@ -1,6 +1,6 @@
 <template>
   <zk-comm-scroll isLeft title="网络请求">
-     <button type="primary" @click="initiateRequest">点击发起请求</button>
+     <button @click="initiateRequest">点击发起请求</button>
      <view style="border: 1px solid red;margin-bottom: 15px"
      v-for="(item, index) in data" :key="index">
        <text>{{item.title}}</text>
